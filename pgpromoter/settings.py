@@ -81,6 +81,11 @@ TEMPLATES = [
 WSGI_APPLICATION = 'pgpromoter.wsgi.application'
 
 
+#Media related
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 

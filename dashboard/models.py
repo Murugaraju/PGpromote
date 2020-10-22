@@ -31,22 +31,25 @@ class PG(models.Model):
     famous_landmark=models.CharField(max_length=120)
     pg_type=models.CharField(max_length=50,choices=[('Men','Men'),('Women','Women')])
 
-
+#below funtion for upload_to attribute of FileField for PGDetails Model
+def pg_name_get(instance,filename):
+    return 'images/'+str(instance.pg_ob.pg_name)+'/'+filename
 class PGDetails(models.Model):
+
     pg_ob=models.OneToOneField('PG',on_delete=models.CASCADE)
-    main1=models.CharField(max_length=600)
-    main2=models.CharField(max_length=600)
-    single_sharing=models.CharField(max_length=600)
-    double_sharing=models.CharField(max_length=600)
-    three_sharing=models.CharField(max_length=600)
-    four_sharing=models.CharField(max_length=600)
-    kitchen=models.CharField(max_length=600)
-    bathroom=models.CharField(max_length=600)
-    location=models.CharField(max_length=600)
+    main1=models.FileField(upload_to=pg_name_get)
+    main2=models.FileField(upload_to=pg_name_get)
+    single_sharing=models.FileField(upload_to=pg_name_get)
+    double_sharing=models.FileField(upload_to=pg_name_get)
+    three_sharing=models.FileField(upload_to=pg_name_get)
+    four_sharing=models.FileField(upload_to=pg_name_get)
+    kitchen=models.FileField(upload_to=pg_name_get)
+    bathroom=models.FileField(upload_to=pg_name_get)
+    location=models.FileField(upload_to=pg_name_get)
 
     # facilities yet to think
     
-    
+
 
 
 
